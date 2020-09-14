@@ -1,0 +1,130 @@
+_______________________________________________________________
+         __          _______   _____
+         \ \        / /  __ \ / ____|
+          \ \  /\  / /| |__) | (___   ___  __ _ _ __ ®
+           \ \/  \/ / |  ___/ \___ \ / __|/ _` | '_ \
+            \  /\  /  | |     ____) | (__| (_| | | | |
+             \/  \/   |_|    |_____/ \___|\__,_|_| |_|
+
+         WordPress Security Scanner by the WPScan Team
+                         Version 3.8.2
+       Sponsored by Automattic - https://automattic.com/
+       @_WPScan_, @ethicalhack3r, @erwan_lr, @firefart
+_______________________________________________________________
+
+[+] URL: http://192.168.56.105/ [192.168.56.105]
+[+] Started: Mon Sep 14 12:53:54 2020
+
+Interesting Finding(s):
+
+[+] Headers
+ | Interesting Entry: Server: Apache/2.4.18 (Ubuntu)
+ | Found By: Headers (Passive Detection)
+ | Confidence: 100%
+
+[+] http://192.168.56.105/robots.txt
+ | Found By: Robots Txt (Aggressive Detection)
+ | Confidence: 100%
+
+[+] XML-RPC seems to be enabled: http://192.168.56.105/xmlrpc.php
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+ | References:
+ |  - http://codex.wordpress.org/XML-RPC_Pingback_API
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_ghost_scanner
+ |  - https://www.rapid7.com/db/modules/auxiliary/dos/http/wordpress_xmlrpc_dos
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_xmlrpc_login
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_pingback_access
+
+[+] http://192.168.56.105/readme.html
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+
+[+] Upload directory has listing enabled: http://192.168.56.105/wp-content/uploads/
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+
+[+] The external WP-Cron seems to be enabled: http://192.168.56.105/wp-cron.php
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 60%
+ | References:
+ |  - https://www.iplocation.net/defend-wordpress-from-ddos
+ |  - https://github.com/wpscanteam/wpscan/issues/1299
+
+[+] WordPress version 4.5.22 identified (Latest, released on 2020-06-10).
+ | Found By: Rss Generator (Passive Detection)
+ |  - http://192.168.56.105/index.php/feed/, <generator>https://wordpress.org/?v=4.5.22</generator>
+ |  - http://192.168.56.105/index.php/comments/feed/, <generator>https://wordpress.org/?v=4.5.22</generator>
+ |  - http://192.168.56.105/index.php/shop/feed/, <generator>https://wordpress.org/?v=4.5.22</generator>
+
+[+] WordPress theme in use: easy-store
+ | Location: http://192.168.56.105/wp-content/themes/easy-store/
+ | Last Updated: 2020-08-16T00:00:00.000Z
+ | Readme: http://192.168.56.105/wp-content/themes/easy-store/readme.txt
+ | [!] The version is out of date, the latest version is 1.1.2
+ | Style URL: http://192.168.56.105/wp-content/themes/easy-store/style.css?ver=1.0.1
+ | Style Name: Easy Store
+ | Style URI: https://mysterythemes.com/wp-themes/easy-store
+ | Description: Easy Store is a beautifully designed e-commerce theme fully compatible with the most popular WooComm...
+ | Author: Mystery Themes
+ | Author URI: https://mysterythemes.com/
+ |
+ | Found By: Css Style In Homepage (Passive Detection)
+ |
+ | Version: 1.0.13 (80% confidence)
+ | Found By: Style (Passive Detection)
+ |  - http://192.168.56.105/wp-content/themes/easy-store/style.css?ver=1.0.1, Match: 'Version:        1.0.13'
+
+[+] Enumerating All Plugins (via Passive Methods)
+[+] Checking Plugin Versions (via Passive and Aggressive Methods)
+
+[i] Plugin(s) Identified:
+
+[+] woocommerce
+ | Location: http://192.168.56.105/wp-content/plugins/woocommerce/
+ | Last Updated: 2020-09-09T16:42:00.000Z
+ | [!] The version is out of date, the latest version is 4.5.1
+ |
+ | Found By: Urls In Homepage (Passive Detection)
+ | Confirmed By: Meta Generator (Passive Detection)
+ |
+ | Version: 3.2.0 (100% confidence)
+ | Found By: Query Parameter (Passive Detection)
+ |  - http://192.168.56.105/wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css?ver=3.2.0
+ |  - http://192.168.56.105/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css?ver=3.2.0
+ |  - http://192.168.56.105/wp-content/plugins/woocommerce/assets/css/woocommerce.css?ver=3.2.0
+ |  - http://192.168.56.105/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js?ver=3.2.0
+ |  - http://192.168.56.105/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=3.2.0
+ |  - http://192.168.56.105/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js?ver=3.2.0
+ | Confirmed By: Meta Generator (Passive Detection)
+ |  - http://192.168.56.105/, Match: 'WooCommerce 3.2.0'
+
+[+] woocommerce-catalog-enquiry
+ | Location: http://192.168.56.105/wp-content/plugins/woocommerce-catalog-enquiry/
+ | Last Updated: 2020-04-27T01:45:00.000Z
+ | [!] The version is out of date, the latest version is 3.2.2
+ |
+ | Found By: Urls In Homepage (Passive Detection)
+ |
+ | Version: 2.3.7 (100% confidence)
+ | Found By: Readme - Stable Tag (Aggressive Detection)
+ |  - http://192.168.56.105/wp-content/plugins/woocommerce-catalog-enquiry/readme.txt
+ | Confirmed By: Readme - ChangeLog Section (Aggressive Detection)
+ |  - http://192.168.56.105/wp-content/plugins/woocommerce-catalog-enquiry/readme.txt
+
+[+] Enumerating Config Backups (via Passive and Aggressive Methods)
+
+ Checking Config Backups -: |=======================================================================================|
+
+[i] No Config Backups Found.
+
+[!] No WPVulnDB API Token given, as a result vulnerability data has not been output.
+[!] You can get a free API token with 50 daily requests by registering at https://wpvulndb.com/users/sign_up
+
+[+] Finished: Mon Sep 14 12:53:57 2020
+[+] Requests Done: 23
+[+] Cached Requests: 38
+[+] Data Sent: 6.128 KB
+[+] Data Received: 4.078 KB
+[+] Memory used: 210.465 MB
+[+] Elapsed time: 00:00:03
